@@ -1,0 +1,70 @@
+@Metadata.layer: #CORE
+@UI.headerInfo: {
+    typeName: '',
+    typeNamePlural: '',
+    typeImageUrl: '',
+    imageUrl: 'Url',
+    title: {
+        type: #STANDARD,
+        label: '',
+        iconUrl: '',
+        criticality: '',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'Titulo',
+        valueQualifier: '',
+        targetElement: '',
+        url: ''
+    },
+    description: {
+        type: #STANDARD,
+        label: '',
+        iconUrl: '',
+        criticality: '',
+        criticalityRepresentation: #WITHOUT_ICON,
+        value: 'Autor',
+        valueQualifier: '',
+        targetElement: '',
+        url: ''
+    }
+}
+
+
+
+annotate view z_i_libros_azpe with
+{
+
+
+  @UI.lineItem: [{ position: 10, importance: #LOW }]
+  Titulo;
+  @UI.lineItem: [{ position: 20, importance: #LOW }]
+  Autor;
+  @UI.lineItem: [{ position: 30, importance: #LOW }]
+  Editorial;
+  @UI.lineItem: [{ position: 40, importance: #HIGH,
+  label: 'Estado', criticality: 'criticidad' }]
+  EstatusVenta;
+
+
+
+
+  @UI.facet: [
+  { id: 'DetallesLibro', label:'Detalles del Libro', type: #COLLECTION, position: 10 },
+  { id: 'Libro', parentId: 'DetallesLibro', label: 'Detalles', type: #FIELDGROUP_REFERENCE, targetQualifier: 'DetallesLibro', position: 10},
+  { id: 'Cliente', label: 'Clientes',   type: #LINEITEM_REFERENCE, targetElement: '_ClientesLibro', position: 20 },
+  { id: 'Categoria', label: 'Categorias',   type: #LINEITEM_REFERENCE, targetElement: '_Categorias', position: 30 }
+  ]
+
+  @UI.fieldGroup: [{ qualifier: 'DetallesLibro',
+  position: 10 }]
+  Idioma;
+
+  @UI.fieldGroup: [{ qualifier: 'DetallesLibro',
+  position: 20 }]
+  Paginas;
+
+  @UI.fieldGroup: [{ qualifier: 'DetallesLibro',
+  position: 30 }]
+  Precio;
+
+
+}

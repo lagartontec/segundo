@@ -1,0 +1,6 @@
+@EndUserText.label: 'Libros'
+define service Zsd_libros_azpe {
+  expose z_i_libros_azpe        as Libros;
+  expose z_i_clientes_por_libro as Clientes;
+  expose z_b_acc_cat_azpe       as TipoAcceso;
+}

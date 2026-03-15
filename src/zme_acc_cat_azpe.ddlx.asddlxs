@@ -1,0 +1,12 @@
+@Metadata.layer: #CORE
+annotate view z_b_acc_cat_azpe
+    with 
+{
+    @UI.lineItem: [{ position: 10, importance: #HIGH, label : 'Categoria'
+  }]
+  BiCateg;
+  @UI.lineItem: [{ position: 20, importance: #HIGH, label : 'Tipo de acceso'
+  }]
+  TipoAcceso;
+    
+}
